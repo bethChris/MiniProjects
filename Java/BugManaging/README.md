@@ -1,5 +1,5 @@
 # Bug Manager
-This is the start of a small bug managing application. The goal of this is to refresh myself on a variety of concepts but focus on java logging
+This is the start of a small bug managing application. The goal of this is to refresh myself on a variety of concepts but focus on SQL basics, API creation, and Java applications.
 
 
 The outline of the project is as follows:

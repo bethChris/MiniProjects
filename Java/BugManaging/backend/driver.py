@@ -22,14 +22,14 @@ def get_reports():
     conn.close()
 
     # turn it into a more json-ifiable object 
-    all_reports = {"reports":[]}
+    all_reports = []
     for item in reports:
         report = {}
         for i in range(len(columns)):
             report[columns[i]] = item[i]
         
-        all_reports["reports"].append(report)
-
+        all_reports.append(report)
+    print("Sent all reports!")
     return jsonify(all_reports)
 
 
