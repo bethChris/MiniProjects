@@ -1,2 +1,7 @@
 backend/api.txt
 venv/
+
+# unignore important data
+!data/bugs.csv
+!data/reports.csv
+!data/users.csv

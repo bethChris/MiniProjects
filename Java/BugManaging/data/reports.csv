@@ -1,0 +1,31 @@
+ReportId,BugId,UserId,ReportDescr,ReportDate,ResolvedDate
+1,126,1017,Users are unable to log in using their Google account.,2023-09-14,2023-09-17
+2,128,1022,There is no option to export data from the analytics module.,2022-12-25,
+3,125,1011,It takes more than 10 seconds to load the main dashboard after login.,2023-11-03,2023-11-24
+4,129,1008,User's last login date is displayed as today's date instead of the actual last login.,2023-04-18,
+5,124,1013,"Clicking on the ""Help"" link in the footer leads to a 404 error.",2023-06-29,
+6,127,1018,Error message doesn't display when mandatory fields are left blank during registration.,2023-08-02,
+7,123,1003,Elements on the dashboard are not aligned properly on smaller screens.,2022-11-08,2022-11-17
+8,123,1023,Fonts appear distorted in the user profile section.,2023-07-21,2023-07-21
+9,130,1014,The mobile app crashes immediately after launching on Android devices.,2023-01-12,
+10,132,1006,Users do not receive push notifications for new messages on the mobile app.,2022-10-05,2022-10-27
+11,131,1009,Sorting orders by date in ascending order sometimes shows incorrect sequence.,2023-10-30,2023-11-20
+12,123,1015,Graphs and charts do not render correctly in the analytics module.,2023-05-07,2023-06-01
+13,125,1024,Search functionality in the knowledge base takes too long to return results.,2023-02-19,
+14,129,1012,Sales figures for last quarter are showing as zero instead of the correct values.,2023-12-09,2023-12-11
+15,132,1005,Email notifications for upcoming events are sent at irregular intervals.,2022-09-23,
+16,126,1016,Password reset emails are not being delivered to users' inboxes.,2023-03-26,2023-04-09
+17,127,1021,Submitting a form with invalid data does not highlight the fields with errors.,2023-07-06,2023-07-22
+18,124,1004,"The ""Learn More"" button on the pricing page directs to an empty page.",2022-12-04,
+19,130,1020,"Clicking on the ""Submit"" button in the expense report section consistently crashes the desktop application.",2023-08-17,2023-09-07
+20,128,1001,Users cannot change their profile pictures after initial registration.,2023-04-29,2023-05-28
+21,132,1019,Notification badges on the app icon do not clear after checking notifications.,2023-11-15,
+22,131,1002,Editing and saving a document in the editor occasionally results in loss of formatting.,2023-05-23,
+23,123,1025,Scrolling on home page in mobile app causes pictures to disappear on iPhone.,2022-10-14,2022-10-22
+24,125,1010,Generating reports from the admin panel is significantly slow.,2023-09-02,2023-09-17
+25,129,1007,"User's subscription level is incorrectly listed as ""Basic"" instead of ""Premium"".",2023-01-27,
+26,130,1003,Opening the settings menu causes the iOS app to freeze and crash.,2023-06-11,2023-06-23
+27,127,1011,Special characters in the input fields cause the form to fail submission without clear error messaging.,2023-02-07,2023-02-08
+28,128,1006,Scheduled email notifications feature is absent from the settings menu.,2023-12-29,
+29,124,1012,The Terms of Service link in the registration email is broken.,2022-11-19,
+30,131,1022,User permissions intermittently fail to update despite successful changes in the admin panel.,2022-11-20,2022-11-29
