@@ -79,7 +79,7 @@ $ pip install flask pyodoc
 ```
 
 ### Database Credentials
-To connect this projects code to your own SQL database, you will need to set up `api.txt` in the `backend\` directory. Replace the bracketed information with your own values, removing the brackets as well. This text file is read into `driver.py` at the beginning to setup the connection to your database. 
+To connect this projects code to your own SQL database, you will need to create a file called `api.txt` in the `backend\` directory. Copy the information in `api-template.txt` and replace the bracketed information with your own values, removing the brackets as well. The `api.txt` file is read into `driver.py` at the beginning to setup the connection to your database. 
 
 >**NOTE**: I utilized the "Trusted_Connection" attribute to connect via Windows Authentication, but you can use username/password attributes if you prefer. [Pyodoc w/ SQL Tutorial](https://learn.microsoft.com/en-us/sql/connect/python/pyodbc/step-3-proof-of-concept-connecting-to-sql-using-pyodbc?view=sql-server-ver16)
 
