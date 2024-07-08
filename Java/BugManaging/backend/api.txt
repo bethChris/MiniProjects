@@ -1,0 +1,4 @@
+DRIVER=[odbc-driver-version];
+SERVER=[server-address];
+DATABASE=[database-name];
+Trusted_Connection=yes;
