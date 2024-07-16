@@ -16,36 +16,63 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class App implements Runnable {
+    private static JFrame mainFrame;
+    private static CardLayout cardLayout;
+    private static JPanel mainPanel;
+
     public void run(){
         show();
     }
 
     public void show(){
-        JFrame frame = new JFrame("Bug Manager");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500,500);
-        
-        JPanel recentUnresolvedPanel = new JPanel();
-        JPanel recentResolvedPanel = new JPanel();
+        mainFrame = new JFrame("Bug Manager");
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setSize(500,500);
+        cardLayout = new CardLayout();
+        mainPanel = new JPanel(cardLayout);
 
-        JPanel viewAllPanel = new JPanel();
-        JButton button1 = new JButton("View All");
-        
-        viewAllPanel.add(button1);
-        button1.addActionListener(new ActionListener() {
+
+        //Home Panel
+        JPanel homePanel = new JPanel();
+        homePanel.setLayout(new BorderLayout());
+
+        JButton viewAllButton = new JButton("View All");
+        viewAllButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Call the function you want to execute
-                listReports();
+                // listReports();
+                cardLayout.show(mainPanel, "allReportsPanel");
             }
         });
 
-        frame.getContentPane().add(BorderLayout.SOUTH, viewAllPanel);
-        frame.getContentPane().add(BorderLayout.CENTER, recentUnresolvedPanel);
-        frame.getContentPane().add(BorderLayout.CENTER, recentResolvedPanel);
+        homePanel.add(viewAllButton, BorderLayout.SOUTH);
+        
 
-        frame.setVisible(true);
+        // All Reports Panel
+        JPanel allReportsPanel = new JPanel();
+        allReportsPanel.setLayout(new BorderLayout());
+
+        JButton backButton = new JButton("Go Back");
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "homePanel");
+            }
+        });
+        allReportsPanel.add(backButton, BorderLayout.SOUTH);
+
+
+        // Add all panels to main panel
+        mainPanel.add(homePanel, "homePanel");
+        mainPanel.add(allReportsPanel, "allReportsPanel");
+
+        mainFrame.add(mainPanel);
+        mainFrame.setVisible(true);
+
+        cardLayout.show(mainPanel, "homePanel");
     }
+
     
 
     public void listReports() {      
