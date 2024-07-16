@@ -11,12 +11,42 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 
-public class App {
-    public String getGreeting() {
-        listReports();
-        return "Hello World!";
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
+public class App implements Runnable {
+    public void run(){
+        show();
     }
+
+    public void show(){
+        JFrame frame = new JFrame("Bug Manager");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500,500);
+        
+        JPanel recentUnresolvedPanel = new JPanel();
+        JPanel recentResolvedPanel = new JPanel();
+
+        JPanel viewAllPanel = new JPanel();
+        JButton button1 = new JButton("View All");
+        
+        viewAllPanel.add(button1);
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Call the function you want to execute
+                listReports();
+            }
+        });
+
+        frame.getContentPane().add(BorderLayout.SOUTH, viewAllPanel);
+        frame.getContentPane().add(BorderLayout.CENTER, recentUnresolvedPanel);
+        frame.getContentPane().add(BorderLayout.CENTER, recentResolvedPanel);
+
+        frame.setVisible(true);
+    }
+    
 
     public void listReports() {      
         HttpClient httpClient = HttpClient.newHttpClient();  
@@ -37,9 +67,10 @@ public class App {
         catch (IOException | InterruptedException e) {  
             throw new RuntimeException(e);  
         }  
-}
+    }
+    
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        SwingUtilities.invokeLater(new App());
         
     }
 }
