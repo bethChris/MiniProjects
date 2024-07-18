@@ -10,7 +10,7 @@ This is the start of a small bug managing application. The goal of this is to re
 # Prerequisites
 Note I use Windows. Installing and running this project on other operating systems may take some *finagling*.
 
-Each Section will outline again the exact needs to get that respective part up and running, however, here's the exaustive list so you know what you're getting yourself into:
+Each Section will outline detailed needs to get that respective part up and running, however, here's the general list of languages and tools you'll need so that you know what you're getting yourself into:
 
 - [Python 3.xx ](https://www.python.org/about/gettingstarted/) (I used 3.11.0)
 - [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
@@ -65,7 +65,7 @@ The data for this project is provided in `data\` as CSV files. You can load thes
 This backend is the API for connecting the database to the frontend/app. It currently has one endpoint (`/reports`) used to query all reports in the database and return them as a JSON object.
 
 ## Backend Setup
-This project requires setup of an SQL database (with credentials) and a couple of python packages.
+This project requires setup of an SQL database (with credentials), python, and a couple of python packages.
 
 ### Packages
 I suggest creating a virtual environment. [Python Docs: Creation of Virual Environments](https://docs.python.org/3/library/venv.html). 
@@ -106,8 +106,50 @@ This will start a development server.
 Visit http://localhost:5000/reports to see the returned json object of all reports in your database. 
 
 # Frontend
-*more documentation to follow here shortly*
+This will be the application that displays the information queired from the API. It currently consists of a simple GUI created with Swing.
 
+## Frontend Setup
+This requires Java and Gradle to run. (See [prerequisites](#prerequisites))
+
+### Dependencies
+The dependencies are listed in the `build.gradle` file so by downloading this project you should already have that. However, here is a breakdown of what those dependencies are:
+
+- **org.junit.jupiter:junit-jupiter:5.9.1** : used to create unit tests in the `\test` directory (comes with Gradle init task setup)
+
+- **com.fasterxml.jackson.core\*** : all used to convert JSON objects into defined Java objects. Used in `Utils.java` in the `\main` directory
+
+### Endpoint Setup
+This project currently only supports one endpoint (http://localhost:5000/reports). If you changed this endpoing in the API, it will need to be updated in `Utils.java` as well: 
+
+```java
+ public static final String USER_API = "http://localhost:5000/reports";
+```
+
+## Custom Objects
+I utilized the ObjectMapper class to turn the JSON object from the API into my own record in `Report.java`. Because of this, the functions called on in `Utils.java` are specific to the Report data structure (for now). 
+
+>**NOTE**: if you wish to change this to fit your own needs, you'll have to create a custom record yourself (based on the JSON object your API returns) and then change that reference in `Utils.java` 
+
+## Running the Frontend
+To run the frontend, ensure your API is in working order as this application currently requires it to be working to pass the tests. I will eventually add more elegant error handling.
+
+### With Terminal (my preferred)
+Navigate to the `\frontend` directory and run the following command:
+
+```bash
+$ ./gradlew build
+```
+Hopefully all should be working properly and the build completes. Then run:
+
+```bash
+$ ./gradlew run
+```
+Wala. It is run.
+
+### With Visual Studio
+With the code in the `\src\main` directory open, hit **Run**
+
+(This may require adding some Java debugger/compiling extensions)
 
 # Resources
 Helpful tips, tricks, videos, and documentation used during this project.
@@ -141,6 +183,10 @@ Helpful tips, tricks, videos, and documentation used during this project.
 [Java ObjectMapper Docs](https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/2.9.8/com/fasterxml/jackson/databind/ObjectMapper.html)
 
 [Using ObjectMapper to go from JSON to Java Object](https://www.baeldung.com/jackson-object-mapper-tutorial)
+
+[Creating GUIs With Swing](https://www.guru99.com/java-swing-gui.html)
+
+[Swing Documentation](https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html)
 
 
 ## Misc
