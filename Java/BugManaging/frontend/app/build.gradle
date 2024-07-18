@@ -20,9 +20,6 @@ dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
 
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:31.1-jre'
-
     // This dependency is used for converting json to an object
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.12.3'
