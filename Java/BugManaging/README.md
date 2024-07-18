@@ -188,6 +188,7 @@ Helpful tips, tricks, videos, and documentation used during this project.
 
 [Swing Documentation](https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html)
 
+[Asyncronous API Calls w/ SwingWorkers](https://docs.oracle.com/javase/8/docs/api/javax/swing/SwingWorker.html)
 
 ## Misc
 [Python Docs: Creation of Virual Environments](https://docs.python.org/3/library/venv.html).

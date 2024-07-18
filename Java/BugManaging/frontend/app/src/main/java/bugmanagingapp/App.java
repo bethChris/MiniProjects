@@ -19,6 +19,7 @@ public class App implements Runnable {
     private static JFrame mainFrame;
     private static CardLayout cardLayout;
     private static JPanel mainPanel;
+    private JTextArea reportsText = new JTextArea();
 
     public void run(){
         show();
@@ -40,9 +41,9 @@ public class App implements Runnable {
         viewAllButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Call the function you want to execute
-                // listReports();
+                // change panel and call API worker
                 cardLayout.show(mainPanel, "allReportsPanel");
+                new APIWorker().execute();
             }
         });
 
@@ -60,8 +61,10 @@ public class App implements Runnable {
                 cardLayout.show(mainPanel, "homePanel");
             }
         });
-        allReportsPanel.add(backButton, BorderLayout.SOUTH);
 
+
+        allReportsPanel.add(backButton, BorderLayout.SOUTH);
+        allReportsPanel.add(reportsText);
 
         // Add all panels to main panel
         mainPanel.add(homePanel, "homePanel");
@@ -74,28 +77,53 @@ public class App implements Runnable {
     }
 
     
-
-    public void listReports() {      
+    public String listReports() {      
         HttpClient httpClient = HttpClient.newHttpClient();  
         HttpRequest request = HttpRequest.newBuilder(URI.create(Utils.USER_API)).GET().build();  
         try {  
             HttpResponse<InputStream> response = httpClient.send(request, HttpResponse.BodyHandlers.ofInputStream());  
     
-            int statusCode = response.statusCode();  
-            System.out.println("HTTP status: " + statusCode);  
-    
+            // int statusCode = response.statusCode();  
+            // System.out.println("HTTP status: " + statusCode);  
+
             System.out.println("Reports returned in request: ");  
-            List<Report> reports = Utils.toList(response.body());  
-            reports.forEach(System.out::println);  
-    
-            System.out.println("Headers:");  
-            response.headers().map().forEach((header, value) -> System.out.println(header + " = " + String.join(", ", value)));  
+            
+            // TODO: temporary, build a string of what the reports show. eventually stick this info in a table
+            StringBuilder sb = new StringBuilder();
+            for (Report element : Utils.toList(response.body())) {
+                sb.append(element.ReportId()).append(" | ");
+                sb.append(element.ReportDescr()).append(" | ");
+                sb.append(element.ReportDate()).append("\n");
+            }
+            System.out.println(sb.toString());
+            String reports = sb.toString();
+
+            // System.out.println("Headers:");  
+            // response.headers().map().forEach((header, value) -> System.out.println(header + " = " + String.join(", ", value))); 
+
+            return reports;
         }  
         catch (IOException | InterruptedException e) {  
             throw new RuntimeException(e);  
         }  
     }
-    
+
+    //Little worker class that will grab reports and update swing component when completed
+    private class APIWorker extends SwingWorker<String, Void>{
+        @Override
+        public String doInBackground() {
+            System.out.println("loading...");
+            return listReports();
+        }
+
+            @Override
+        protected void done() {
+            try {
+                reportsText.setText(get());
+            } catch (Exception ignore) {
+            }
+        }
+    }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new App());
         
