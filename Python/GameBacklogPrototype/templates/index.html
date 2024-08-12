@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Backlog of Awesomeness</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename=style) }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Gaming Backlog of Awesomeness!</h1>
+        <p>Your ultimate destination to track and conquer your gaming backlog.</p>
+    </header>
+
+    <main>
+        <section class="introduction">
+            <h2>Explore Your Games</h2>
+            <p>Start managing your gaming collection and never miss out on the awesomeness!</p>
+            <a href="{{ url_for('cycle') }}" class="btn-explore">Start Exploring</a>
+        </section>
+        
+        <section class="featured-games">
+            <h2>Featured Games</h2>
+            <div class="games-container">
+                <div class="game-card">
+                    <img src="game1.jpg" alt="Game 1">
+                    <h3>Game Title 1</h3>
+                    <p>A brief description of Game 1.</p>
+                </div>
+                <div class="game-card">
+                    <img src="game2.jpg" alt="Game 2">
+                    <h3>Game Title 2</h3>
+                    <p>A brief description of Game 2.</p>
+                </div>
+                <div class="game-card">
+                    <img src="game3.jpg" alt="Game 3">
+                    <h3>Game Title 3</h3>
+                    <p>A brief description of Game 3.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Gaming Backlog of Awesomeness. All rights reserved.</p>
+    </footer>
+</body>
+</html>

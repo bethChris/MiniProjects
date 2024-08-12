@@ -1,0 +1,134 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Garamond', serif;
+    background-color: #1a1a1a; /* Very dark gray */
+    color: #e0e0e0; /* Light gray */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #2b2b2b; /* Darker gray */
+    border-radius: 10px;
+    border-bottom: 2px solid #444; /* Darker border */
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #d4af37; /* Gold */
+    font-family: 'Old English Text MT', serif; /* Gothic font */
+    letter-spacing: 3px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #a8a8a8; /* Light gray */
+}
+
+/* Main Section Styles */
+main {
+    margin-top: 30px;
+}
+
+.introduction {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.introduction h2 {
+    font-size: 2.5rem;
+    color: #d4af37; /* Gold */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #000; /* Subtle shadow */
+}
+
+.introduction p {
+    font-size: 1.2rem;
+    color: #e0e0e0; /* Light gray */
+    margin-bottom: 20px;
+}
+
+.btn-explore {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #e0e0e0; /* Light gray */
+    background-color: #444; /* Dark gray */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-explore:hover {
+    background-color: #d4af37; /* Gold */
+    color: #1a1a1a; /* Very dark gray */
+}
+
+/* Featured Games Section */
+.featured-games {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.featured-games h2 {
+    font-size: 2.5rem;
+    color: #d4af37; /* Gold */
+    margin-bottom: 30px;
+}
+
+.games-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.game-card {
+    background-color: #2b2b2b; /* Darker gray */
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    border: 2px solid #d4af37; /* Gold */
+}
+
+.game-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    filter: grayscale(80%);
+}
+
+.game-card h3 {
+    font-size: 1.5rem;
+    color: #d4af37; /* Gold */
+    margin-bottom: 10px;
+}
+
+.game-card p {
+    font-size: 1rem;
+    color: #e0e0e0; /* Light gray */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #2b2b2b; /* Darker gray */
+    border-radius: 10px;
+    border-top: 2px solid #444; /* Darker border */
+}
+
+footer p {
+    font-size: 1rem;
+    color: #d4af37; /* Gold */
+}
