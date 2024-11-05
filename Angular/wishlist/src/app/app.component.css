@@ -1,0 +1,14 @@
+h1 {
+    font-family: 'Arial', sans-serif;
+    color: #007bff; /* Bootstrap primary color */
+  }
+  
+  .card {
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+  }
+  
