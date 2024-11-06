@@ -4,7 +4,7 @@ export class WishItem {
         
     }
 
-    toggleComplete(){
+    toggleComplete(){ 
         this.isComplete = !this.isComplete;
     }
 

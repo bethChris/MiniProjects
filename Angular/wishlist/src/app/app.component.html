@@ -1,19 +1,24 @@
 <div class="container my-4">
   <h1 class="text-center mb-4">{{ title }}</h1>
-  
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    <div *ngFor="let item of wishList; let i = index" class="col">
-      <div class="card shadow-sm h-100" (click)="item.toggleComplete()">
-        <div class="card-body">
-          <h5 class="card-title">{{ i + 1 }}. {{ item.wishText }}</h5>
-          <p class="card-text" *ngIf="item.isComplete">
-            <span class="badge bg-success">Completed</span>
-          </p>
-          <p class="card-text" *ngIf="!item.isComplete">
-            <span class="badge bg-warning text-dark">Pending</span>
-          </p>
+  <div *ngIf="wishList.length <= 0 else showItems" class="text-center mb-4">
+    No wishes for my bishes 
+  </div>
+
+  <ng-template #showItems>
+    <div *ngIf="wishList.length > 0" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div *ngFor="let item of wishList; let i = index" class="col">
+        <div class="card shadow-sm h-100" (click)="wishItemClicked($event, item)">
+          <div class="card-body" [attr.id]="i+'-wishItemCard'">
+            <h5 class="card-title">{{ i + 1 }}. {{ item.wishText }}</h5>
+            <p class="card-text" *ngIf="item.isComplete">
+              <span class="badge bg-success">Completed</span>
+            </p>
+            <p class="card-text" *ngIf="!item.isComplete">
+              <span class="badge bg-warning text-dark">Pending</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </ng-template> 
 </div>

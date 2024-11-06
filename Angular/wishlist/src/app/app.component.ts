@@ -12,7 +12,7 @@ import { WishItem } from '../shared/models/wishItem';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  wishList = [
+  wishList : WishItem[] = [
     new WishItem("Learn Angular"),
     new WishItem("Do a flip"),
     new WishItem("Eat pastrami"),
@@ -22,6 +22,11 @@ export class AppComponent {
     new WishItem("Dinner with myself")
   ]
 
-
   title = 'Wishlist';
+
+  wishItemClicked(e: any, item : WishItem){
+    item.toggleComplete();
+    console.log(e);
+  }
 }
+
